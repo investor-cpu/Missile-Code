@@ -8,7 +8,7 @@ len(a)==len(d)
 最大限制类的参数设置为无穷大
 来袭导弹序列中,将资产 value 最高的设置为current interest
 根据问题的物理限制和最大限制，对于攻击 current interest 资产的导弹, 为来袭的每一个导弹分配一个拦截导弹
-（🖕终止条件）分配完之后, 将 current interest 设置为下一个最有价值的资产类别；如果没有下一个的话就停止
+分配完之后, 将 current interest 设置为下一个最有价值的资产类别；如果没有下一个的话就停止
 设置最大限制，即拦截导弹超过导弹的剩余量减去所有资产类别中价值大于当前利益类别的资产总数，最有价值的剩余资产类别除外
 回到步骤3
 """
@@ -61,11 +61,11 @@ def allocation_interceptor(i, a):
     '''current interest 是我们要保护的资产中价值最高的一类'''
     c_i = -1
     # 判断当前状态下初始的current interest
-    if sum(a3) != 0:  # 对资产3有攻击的行为
+    if sum(a3) != 0:  # 对资产2有攻击的行为
         c_i = 2
-    elif sum(a2) != 0:  # 对资产2有攻击的行为
+    elif sum(a2) != 0:  # 对资产1有攻击的行为
         c_i = 1
-    elif sum(a1) != 0:  # 对资产1有攻击行为
+    elif sum(a1) != 0:  # 对资产0有攻击行为
         c_i = 0
 
     max_limit = -2  # 设置最大限制
